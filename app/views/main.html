@@ -9,12 +9,15 @@
   </div>
 
   <div class='row'>
-  <div class="col-md-6" ng-controller='CurrentCtrl'>
-    <weather-tile></weather-tile>
+
+  <div class="col-md-6">
+    <weather-tile wly-title="'Current'" wly-main-data="currentMainData" wly-weather-data="currentWeatherData"></weather-tile>
   </div>
-  <div class="col-md-6" ng-controller='ForecastCtrl'>
-    
+
+  <div class="col-md-6">
+    <weather-tile wly-title="'Forecast'" wly-main-data="'Some data...'" wly-weather-data="'Weather data'"></weather-tile>
   </div>
+
   </div>
 
 </div>

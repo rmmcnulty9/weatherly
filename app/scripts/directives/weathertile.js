@@ -9,10 +9,12 @@
 angular.module('weatherlyApp')
   .directive('weatherTile', function () {
     return {
-      template: '<div></div>',
+      templateUrl: '../views/weathertile.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the weatherTile directive');
+      scope: {
+        wlyTitle: '=',
+        wlyMainData: '=',
+        wlyWeatherData: '='
       }
     };
   });
