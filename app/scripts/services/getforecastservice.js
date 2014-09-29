@@ -11,6 +11,8 @@ angular.module('weatherlyApp')
   .service('getForecastService', function getForecastService($http) {
     return function (location, callback) {
         $http.get('http://api.openweathermap.org/data/2.5/forecast?q=' + location).
-          success (callback);
+          success (function(data) {
+            callback (data.list.splice(0, 5));
+            });
       };
   });

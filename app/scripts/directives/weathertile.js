@@ -17,10 +17,16 @@ angular.module('weatherlyApp')
         wlyWeatherData: '=',
         degreeType: '='
       },
-      link: function(scope, elm, attr) {
-        scope.temp = kelvinToDegree(scope.wlyMainData.temp, scope.degreeType);
-        scope.temp_high = kelvinToDegree(scope.wlyMainData.temp_max, scope.degreeType);
-        scope.temp_low = kelvinToDegree(scope.wlyMainData.temp_min, scope.degreeType);
-      }
+      link: function(scope, elm, attrs) {
+        scope.$watch ('wlyMainData', function (newValue, oldValue) {
+            scope.temp = kelvinToDegree(scope.wlyMainData.temp, scope.degreeType);
+            scope.temp_high = kelvinToDegree(scope.wlyMainData.temp_max, scope.degreeType);
+            scope.temp_low = kelvinToDegree(scope.wlyMainData.temp_min, scope.degreeType);
+        });
+
+        // scope.temp = kelvinToDegree(scope.wlyMainData.temp, scope.degreeType);
+        // scope.temp_high = kelvinToDegree(scope.wlyMainData.temp_max, scope.degreeType);
+        // scope.temp_low = kelvinToDegree(scope.wlyMainData.temp_min, scope.degreeType);
+    }
     };
   });

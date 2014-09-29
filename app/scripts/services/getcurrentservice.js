@@ -12,7 +12,7 @@ angular.module('weatherlyApp')
     return function (location, callback) {
         $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + location).
           success (function(data) {
-            callback(data.main, data.weather[0]);
+            callback(data.main, data.weather);
             });
       };
   });

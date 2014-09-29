@@ -10,13 +10,17 @@
 
   <div class='row'>
 
-  <div class="col-md-6">
-    <weather-tile wly-title="'Current'" wly-main-data="currentMainData" wly-weather-data="currentWeatherData" degree-type="'F'"></weather-tile>
-  </div>
+    <div class="col-md-6">
+      <weather-tile wly-title="'Current'" wly-main-data="currentMainData" wly-weather-data="currentWeatherData" degree-type="'F'"></weather-tile>
+    </div>
 
-  <div class="col-md-6">
-    <weather-tile wly-title="'Forecast'" wly-main-data="'Some data...'" wly-weather-data="'Weather data'" degree-type="'F'"></weather-tile>
-  </div>
+    <div class="col-md-6">
+      <ul class='list-group'>
+        <li ng-repeat='dayData in forecastData'>
+          <weather-tile wly-title="'Forecast'" wly-main-data="dayData.main" wly-weather-data="dayData.weather" degree-type="'F'"></weather-tile>
+        </li>
+      </ul>
+    </div>
 
   </div>
 
