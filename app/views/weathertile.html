@@ -4,6 +4,6 @@
     <h3 class="text-center">{{wlyWeatherData.main}}</h3>
     <h4 class="text-center">{{wlyWeatherData.description}}</h4>
 
-    <h3 class="text-center">{{wlyMainData.temp}}</h3>
-    <h4 class="text-center">{{wlyMainData.temp_max}} / {{wlyMainData.temp_min}}</h4>
+    <h3 class="text-center">{{temp | number:0}}</h3>
+    <h4 class="text-center">{{temp_high | number:0}} / {{temp_low | number:0}}</h4>
 </div>

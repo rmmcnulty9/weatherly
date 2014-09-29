@@ -8,7 +8,7 @@
  * Controller of the weatherlyApp
  */
 angular.module('weatherlyApp')
-  .controller('MainCtrl', function ($scope, getCurrentService, getForecastService) {
+  .controller('MainCtrl', function ($scope, getCurrentService, getForecastService, kelvinToDegree) {
     $scope.location;
     $scope.initMainData = {
         humidity: 68,
@@ -29,9 +29,8 @@ angular.module('weatherlyApp')
     $scope.currentWeatherData = $scope.initWeatherData;
 
     $scope.getWeather = function () {
-        getCurrentService($scope.location, function (data) {
-            console.log("current: ");
-            console.log(data);
+        getCurrentService($scope.location, function (main, weather) {
+
             $scope.currentMainData = data.main;
             $scope.currentWeatherData = data.weather[0];
         });
