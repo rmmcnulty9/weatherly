@@ -8,6 +8,9 @@
  * Service in the weatherlyApp.
  */
 angular.module('weatherlyApp')
-  .service('getCurrentService', function getCurrentService() {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .service('getCurrentService', function getCurrentService($http) {
+    return function (location, callback) {
+        $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + location).
+          success (callback);
+      };
   });
